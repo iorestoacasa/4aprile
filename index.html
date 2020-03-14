@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>#IORESTOACASA Italian Countdown Timer</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no">
+        <meta name="description" content="#IORESTOACASA Italian Countdown Timer">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="canonical" href="" />        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <style type="text/css">
+            body, * {
+                font-family: 'Roboto', sans-serif;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            body,h1 {font-family: "Roboto", sans-serif}
+            body, html {height: 100%}
+            .bgimg {
+              background-image: url('bk.jpg');
+              min-height: 100%;
+              background-position: center;
+              background-size: cover;
+            }
+        </style>
+        
+    </head>
+    <body>
+    
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+        <div class="w3-display-topleft w3-padding-large w3-large" id="iorestoacasa_date">
+            Aspettando il 4 Aprile 2020 00:00
+        </div>
+
+        <div class="w3-display-middle" id="id_main_box">
+            <h1 class="w3-xxlarge w3-center w3-animate-top" id="iorestoacasa_label">
+                <a href="https://twitter.com/hashtag/iorestoacasa" target="_blank" style="cursor:pointer;text-decoration:none">#IORESTOACASA</a>
+            </h1>
+            <hr class="w3-border-white w3-animate-top" style="margin:auto;width:60%">
+            <h1 class="w3-xxlarge w3-center w3-animate-top" id="iorestoacasa_countdown"></h1>
+            <hr class="w3-border-white w3-animate-top" style="margin:auto;width:60%">
+            <h1 class="w3-xlarge w3-center w3-animate-top" id="andratuttobene_label">
+                 <a href="https://twitter.com/hashtag/andratuttobene" target="_blank" style="cursor:pointer;text-decoration:none">#ANDRATUTTOBENE</a>
+            </h1>
+            <h1 class="w3-large w3-right w3-animate-top" style="cursor:pointer;text-decoration:underline" id="id_linkutili">link utili ></h1>
+        </div>
+
+        <div class="w3-display-middle" id="id_second_box" style="display:none">
+            <h1 class="w3-large w3-center w3-animate-top">
+                <a href="https://twitter.com/hashtag/iorestoacasa" target="_blank" style="cursor:pointer;text-decoration:none">#IORESTOACASA</a>
+            </h1>
+            <h1 class="w3-large w3-center w3-animate-top">
+                 <a href="https://twitter.com/hashtag/andratuttobene" target="_blank" style="cursor:pointer;text-decoration:none">#ANDRATUTTOBENE</a>
+            </h1>
+            <h1 class="w3-large w3-center w3-animate-top">
+                 <a href="https://www.gazzettaufficiale.it/dettaglioArea/12" target="_blank" style="cursor:pointer;text-decoration:none">gazzettaufficiale</a>
+            </h1>
+            <h1 class="w3-large w3-center w3-animate-top">
+                 <a href="http://www.protezionecivile.gov.it/" target="_blank" style="cursor:pointer;text-decoration:none">protezionecivile</a>
+            </h1>
+            <h1 class="w3-large w3-left w3-animate-top" style="cursor:pointer;text-decoration:underline" id="id_back"> back</h1>
+        </div>
+
+        <div class="w3-display-bottomleft w3-padding-large w3-small">
+            Thank you:
+            <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a> ,
+            <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> ,
+            <a href="https://jquery.com/" target="_blank">jQuery</a>
+        </div>
+    </div>
+
+    <script>
+        var countDownDate = new Date("Apr 4, 2020 00:00:00 GMT+0100").getTime();
+        function iorestoacasa(){
+            var now = new Date().getTime();
+
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (distance <= 0) {
+                clearInterval(window.iorestoacasaIn);
+                document.getElementById("iorestoacasa_countdown").innerHTML = "CI SIAMO RIUSCITI";
+            } else {
+                document.getElementById("iorestoacasa_countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            }
+        }
+        iorestoacasa();
+
+        window.iorestoacasaIn = setInterval(iorestoacasa , 1000);
+
+        $('body').on('click',"#id_linkutili", function(){
+            $('#id_main_box').hide();
+            $('#id_second_box').show();
+        })
+
+        $('body').on('click',"#id_back", function(){
+            $('#id_main_box').show();
+            $('#id_second_box').hide();
+        })
+    </script>
+	</body>
+</html>
